@@ -10,7 +10,18 @@ router.get('/mensajes', (req: Request, res: Response) =>
     ok:true,
     mensaje: 'Todo esta bien'
  });
+});
+
+router.post('/mensajes',(req: Request, res: Response)=>{
+   const cuerpo = req.body.cuerpo;
+   const de = req.body.de;
+
+   const payload = {cuerpo, de};
+
+   const server = Server._instance;
+   server.io.emit("mensaje-nuevo", payload);
 })
+
 
 router.post('/mensajes/:para', (req:Request, res:Response) =>
 {
