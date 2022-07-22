@@ -7,7 +7,7 @@ import * as socket from '../sockets/sockets'
 export  default class Server
 {
     public static _instance: Server;
-
+  
     public app: express.Application;
     public port: number;
 
